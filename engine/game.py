@@ -18,7 +18,6 @@ class Game(ShowBase):
         self.disableMouse()
         self.render.set_antialias(AntialiasAttrib.MMultisample)
         self.render.setShaderAuto()
-        self.render.setShaderAuto()
         self.win.setClearColor(LVector4(0.2, 0.2, 0.2, 1))
         self.paused = False
         self.scenes = load_scenes()
