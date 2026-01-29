@@ -10,7 +10,7 @@ class MainMenu(GUI):
         return super().pre_load()
 
     def create(self):
-        self.objects["title"] = OnscreenText(text='Panda Game Framework', pos=(0, 0.2), scale=0.07, fg=(1, 1, 1, 1))
+        self.objects["title"] = OnscreenText(text='Panda Game Dev', pos=(0, 0.2), scale=0.07, fg=(1, 1, 1, 1))
         self.objects['start_button'] = DirectButton(
             text="Start game", scale=0.1, pos=(0, 0, 0.05), command=self.start_game
         )
