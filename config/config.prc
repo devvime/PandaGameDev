@@ -1,6 +1,6 @@
-win-size 640 360
+win-size 720 480
 window-title Game Framework 
-fullscreen true
+fullscreen false
 show-frame-rate-meter true
 framebuffer-multisample true
 multisamples 4

@@ -1,4 +1,5 @@
 from engine.scene import Scene
+from engine.light import ambient_light, directional_light
 from game.entity.player import Player
 
 class GameScene(Scene):
@@ -11,6 +12,8 @@ class GameScene(Scene):
         return super().pre_load()
         
     def create(self):
+        # self.ambient_light = ambient_light(self.game)
+        # self.directional_light = directional_light(self.game)
         self.game.camera.setPos(0, -5, 1)
         return super().create()        
         
