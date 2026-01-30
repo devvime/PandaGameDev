@@ -11,8 +11,7 @@ class GameScene(Scene):
         return super().pre_load()
         
     def create(self):
-        self.game.camera.setPos(5, -18, 6)
-        self.game.camera.setHpr(20, -13, 2)
+        self.game.camera.setPos(0, -5, 1)
         return super().create()        
         
     def update(self, dt):

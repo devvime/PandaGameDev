@@ -7,6 +7,7 @@ class Player:
     
     def pre_load(self):
         self.model = Actor("assets/player/player")
+        self.model.setHpr(180, 0, 0)
         self.model.reparentTo(self.game.render)
         
     def create(self):
