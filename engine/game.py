@@ -1,12 +1,13 @@
 from direct.showbase.ShowBaseGlobal import globalClock
 from direct.showbase.ShowBase import ShowBase
 from direct.task import Task
-from panda3d.core import loadPrcFile, AntialiasAttrib, LVector4
+from panda3d.core import loadPrcFile, AntialiasAttrib, LVector4, TextNode
+from direct.gui.OnscreenText import OnscreenText
 from engine.instance import set_instance_game
 from engine.set_inputs import set_inputs
 from config.states import *
 from game.load_scenes import load_scenes
-from engine.editor import camera_move
+from engine.editor import camera_move, display_camera_position
 
 loadPrcFile('config/config.prc')
 
@@ -15,6 +16,15 @@ class Game(ShowBase):
         super().__init__()
         
         self.editor = False
+        self.debug_text = OnscreenText(
+            text="",
+            pos=(-1.75, 0.95),
+            scale=0.04,
+            fg=(1, 1, 1, 1),
+            align=TextNode.ALeft,
+            mayChange=True
+        )
+        self.debug_text.hide()
         self.accept('f12', self.editor_mode)
         set_instance_game(self)
         set_inputs(self)
@@ -49,11 +59,7 @@ class Game(ShowBase):
     def editor_mode(self):
         if DEBUG:
             self.editor = not self.editor
-            print(self.editor)
-        # if self.editor:
-        #     self.enable_mouse()
-        # else:
-        #     self.disable_mouse()
+        display_camera_position(self)
 
 game = Game()
 game.run()

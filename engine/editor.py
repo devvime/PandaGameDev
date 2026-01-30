@@ -1,9 +1,13 @@
 from config.inputs import inputs
-from panda3d.core import Vec3
+
+def display_camera_position(game):
+    if game.editor:
+        game.debug_text.show()
+    else: game.debug_text.hide()
 
 def camera_move(game, dt):
-    speed = 10 * dt
-    rot_speed = 60 * dt
+    speed = 5 * dt
+    rot_speed = 30 * dt
 
     if inputs["w"]:
         game.cam.setPos(game.cam, 0, speed, 0)
@@ -26,3 +30,12 @@ def camera_move(game, dt):
         game.cam.setH(game.cam.getH() + rot_speed)
     if inputs["arrow_right"]:
         game.cam.setH(game.cam.getH() - rot_speed)
+    
+    game.cam.setR(0)
+    
+    pos = game.cam.getPos()
+    hpr = game.cam.getHpr()
+    game.debug_text.setText(
+        f"Camera Pos: ({pos.x:.2f}, {pos.y:.2f}, {pos.z:.2f})\n"
+        f"Camera HPR: ({hpr.x:.1f}, {hpr.y:.1f}, {hpr.z:.1f})"
+    )

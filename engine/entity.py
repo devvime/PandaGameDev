@@ -15,4 +15,6 @@ class Entity:
         ...
         
     def destroy(self):
-        if self.model is not None: self.model.remove_node()
+        if self.model is not None: 
+            self.model.cleanup()
+            self.model.remove_node()
