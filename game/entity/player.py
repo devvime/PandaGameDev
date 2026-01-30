@@ -6,13 +6,14 @@ class Player:
         self.game = Game()
     
     def pre_load(self):
-        self.model = Actor(
-            "models/panda-model",
-            { "walk": "models/panda-walk4" }
-        )
-        self.model.setScale(0.005, 0.005, 0.005)
+        # self.model = Actor(
+        #     "models/panda-model",
+        #     { "walk": "models/panda-walk4" }
+        # )
+        self.model = Actor("assets/player/player")
+        # self.model.setScale(0.005, 0.005, 0.005)
         self.model.reparentTo(self.game.render)
-        self.model.loop("walk")
+        # self.model.loop("walk")
         
     def create(self):
         ...
