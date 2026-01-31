@@ -1,7 +1,7 @@
 inputs = {
     "w" : False,
-    "s" : False,
     "a" : False,
+    "s" : False,
     "d" : False,
     "mouse1" : False,
     "arrow_up": False,
@@ -9,5 +9,11 @@ inputs = {
     "arrow_left": False,
     "arrow_right": False,
     "control": False,
-    "shift": False
+    "shift": False,
+    "shift-w": False,
+    "shift-a": False,
+    "shift-s": False,
+    "shift-d": False,
+    "shift-w-a": False,
+    "shift-w-d": False,
 }
