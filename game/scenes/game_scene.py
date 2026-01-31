@@ -12,10 +12,10 @@ class GameScene(Scene):
         return super().pre_load()
         
     def create(self):
-        # self.ambient_light = ambient_light(self.game)
-        # self.directional_light = directional_light(self.game)
+        self.objects["ambient_light"] = ambient_light(self.game)
+        self.objects["directional_light"] = directional_light(self.game)
         self.game.camera.setPos(0, -5, 1)
-        return super().create()        
+        return super().create()
         
     def update(self, dt):
         return super().update(dt)

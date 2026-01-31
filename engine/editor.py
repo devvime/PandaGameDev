@@ -30,9 +30,9 @@ def camera_move(game, dt):
     if inputs["d"]:
         game.cam.setPos(game.cam, speed, 0, 0)
     if inputs["control"]:
-        game.cam.setPos(game.cam, 0, 0, -speed)
-    if inputs["shift"]:
         game.cam.setPos(game.cam, 0, 0, speed)
+    if inputs["shift"]:
+        game.cam.setPos(game.cam, 0, 0, -speed)
 
     if inputs["arrow_up"]:
         game.cam.setP(game.cam.getP() + rot_speed)
