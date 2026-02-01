@@ -22,10 +22,14 @@ class Player(Entity):
         self.model.loop("idle")
         self.current_anim = "idle"
         
-        self.camera_offset = (0.84, 1.91, 0.65)
-        self.game.cam.setPos(self.model.getPos() + self.camera_offset)
+        self.camera_pivot = self.model.attachNewNode("camera_pivot")
+        self.camera_pivot.setPos(0, 0, 0)
+        self.game.cam.setPos(-0.997,5.87, 4.45)
+        self.game.cam.setHpr(171, -10.5, 0)
+        self.game.cam.reparentTo(self.camera_pivot)
         
         env = self.game.loader.load_model("models/environment")
+        env.setScale(0.5,0.5,0.5)
         env.reparentTo(self.game.render)
         
     def create(self):
@@ -58,8 +62,7 @@ class Player(Entity):
         if is_down(KeyboardButton.asciiKey('d')):
             self.model.setH(self.model.getH() - rot_speed)
 
-        self.animate(anim_states)            
-        self.camera_follow(dt)
+        self.animate(anim_states)
             
     def set_anim_state(self, anim):            
         if self.current_anim == anim:
@@ -75,10 +78,3 @@ class Player(Entity):
             self.set_anim_state("run")
         else:
             self.set_anim_state("idle")
-            
-    def camera_follow(self, dt):
-        target_pos = self.model.getPos() + self.camera_offset
-        current_pos = self.game.cam.getPos()
-        smooth_speed = 5.0
-        new_pos = current_pos + (target_pos - current_pos) * smooth_speed * dt
-        self.game.cam.setPos(new_pos)
